@@ -1,0 +1,32 @@
+﻿@model Hotel.SERVICES
+
+@{
+    ViewBag.Title = "Услуги";
+}
+
+<h2>Услуги</h2>
+
+<div class="form-group">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <table>
+                <tr>
+                    <td><p>Название</p></td>
+                    <td><p>Цена за час</p></td>
+                </tr>
+                @foreach (var i in ViewBag.Services)
+                {
+                    <tr>
+                        <td>
+                            @i.NAME_SERVICE
+                        </td>
+                        <td>
+                            @i.PRICE_ONHOUR
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>

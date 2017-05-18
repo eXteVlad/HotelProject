@@ -1,0 +1,28 @@
+﻿@model Hotel.RoomInfo
+
+@{
+    ViewBag.Title = "Бронирование";
+}
+
+<h2>Бронирование</h2>
+
+<div class="form-group">
+    <h4>Бронирование</h4>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <div>Выберите статус номера (Luxury/Standart): @Html.TextBoxFor(m => m.catRoom)</div>
+            <div>Выберите количество мест в номере (2/4): @Html.TextBoxFor(m => m.placeRoom)</div>
+            <div>Выберите с какого числа @Html.EditorFor(m => m.dateinRoom) и до какого числа @Html.EditorFor(m => m.dateoutRoom) вы хотите забронировать номер.</div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Найти номер" class="btn btn-default" />
+            </div>
+        </div>
+        @if(ViewBag.Error != null)
+        {
+            <p class="alert-danger">@ViewBag.Error</p>
+        }
+    }
+</div>

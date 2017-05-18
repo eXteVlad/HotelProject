@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Личный кабинет";
+}
+
+<h4>Здравствуйте, @Session["UserName"].ToString() @Session["UserOt"].ToString()!</h4>
+
+<div class="form-group">
+    @using (Html.BeginForm("ProfileEdit", "Account", FormMethod.Get))
+    {
+        <button class="btn" type="submit">Изменить данные</button>
+    }
+</div>
+<div class="form-group">
+    @using (Html.BeginForm("Exit", "Account", FormMethod.Post))
+    {
+        <button class="btn" type="submit">Выход</button>
+    }
+</div>
+
+<div class="form-group">
+    <table class="table">
+        <tr>
+            <td><p>Фамилия</p></td>
+            <td><p>Имя</p></td>
+            <td><p>Отчество</p></td>
+            <td><p>Пароль</p></td>
+            <td><p>Тип документа</p></td>
+            <td><p>Серия документа</p></td>
+            <td><p>Номер документа</p></td>
+            <td><p>Пол</p></td>
+        </tr>
+        <tr>
+            @foreach (var i in ViewBag.Client)
+            {
+                <td><p>@i.FAM</p></td>
+                <td><p>@i.IM</p></td>
+                <td><p>@i.OT</p></td>
+                <td><p>@i.PASSWORD</p></td>
+                <td><p>@i.DOC_TYPE</p></td>
+                <td><p>@i.SERIAL_DOC</p></td>
+                <td><p>@i.NUMBER_DOC</p></td>
+                <td><p>@i.GENDER</p></td>
+            }
+        </tr>
+    </table>
+</div>
+
+<div class="form-group">
+    <h3>Информация по номеру: </h3>
+    @if(ViewBag.Room != null)
+    {
+        
+    }
+    else
+    {
+        <p>Вы не забронировали номер.</p>
+    }
+</div>
