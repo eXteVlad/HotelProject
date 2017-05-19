@@ -77,11 +77,6 @@ namespace Hotel
                 .WithRequired(e => e.CLIENTS)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<CLIENTS>()
-                .HasMany(e => e.RESERVATION)
-                .WithRequired(e => e.CLIENTS)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<ROOMS>()
                 .Property(e => e.ID_ROOM)
                 .HasPrecision(38, 0);
@@ -97,11 +92,6 @@ namespace Hotel
             modelBuilder.Entity<ROOMS>()
                 .Property(e => e.PRICE)
                 .HasPrecision(38, 0);
-
-            modelBuilder.Entity<ROOMS>()
-                .HasMany(e => e.RESERVATION)
-                .WithRequired(e => e.ROOMS)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SERVICES>()
                 .Property(e => e.ID_SERVICE)

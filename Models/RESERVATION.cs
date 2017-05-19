@@ -21,18 +21,12 @@ namespace Hotel
         [Column(Order = 2)]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Дата рождения")]
-        public DateTime DATE_IN { get; set; }
+        public DateTime? DATE_IN { get; set; }
 
         [Key]
         [Column(Order = 3)]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Дата рождения")]
-        public DateTime DATE_OUT { get; set; }
-
-        public virtual CLIENTS CLIENTS { get; set; }
-
-        public virtual ROOMS ROOMS { get; set; }
+        public DateTime? DATE_OUT { get; set; }
     }
 }
